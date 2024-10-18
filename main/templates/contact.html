@@ -1,24 +1,25 @@
 <!-- contact.html -->
 {% extends 'base.html' %}
-{% load messages %}
 
 {% block title %}Contact{% endblock %}
 
 {% block content %}
-<h2>Contact Us</h2>
+<section class="container-pd">
+    <h2>Contact Us</h2>
 
-<!-- Display success message -->
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
+    <!-- Display success message -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 
-<form method="post" action="{% url 'contact' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Send</button>
-</form>
+    <form method="post" action="{% url 'contact' %}" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="right">Send</button>
+    </form>
+</section>
 {% endblock %}

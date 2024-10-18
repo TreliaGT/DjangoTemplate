@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     {% load static %}
+    {% load custom_tags %}
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,27 +20,31 @@
 
     <!-- Header -->
     <header>
-        <h1>My Django Website</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="">Projects</a></li>
-                <!-- Add more navigation links as needed -->
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="logo"><span>My Django Website</span></div>
+            <div id="menu-button"><i data-lucide="menu"></i></div>
+            <nav id="menu">
+                <ul>
+                    <li class="{% is_active 'home' %}"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="{% is_active 'about' %}"><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <main>
         {% block content %}
         <!-- Page-specific content goes here -->
         {% endblock %}
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 My Django Website</p>
+        <div class="container">
+            <p class="legal">&copy; 2024 My Django Website | Build by</p>
+        </div>
     </footer>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="{% static 'js/styles.js' %}"></script>
