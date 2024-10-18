@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% load static %}
-    {% load custom_tags %}
+    <head>
+        {% load static %}
+        {% load custom_tags %}
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}My Django Website{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}My Django Website{% endblock %}</title>
+        <meta name="description" content="{% block description %}Your page description goes here.{% endblock %}">
+        <meta name="keywords" content="{% block keywords %}keyword1, keyword2, keyword3{% endblock %}">
+        <meta name="robots" content="index, follow"> 
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+        <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{% block twitter_image %}{% static 'images/default-twitter-image.jpg' %}{% endblock %}">
+        <meta name="twitter:title" content="{% block twitter_title %}Your Page Title{% endblock %}">
+        <meta name="twitter:description" content="{% block twitter_description %}Your page description for Twitter.{% endblock %}">
+        <meta property="og:image" content="{% block og_image %}{% static 'images/default-og-image.jpg' %}{% endblock %}">
+        <meta property="og:title" content="{% block og_title %}Your Page Title{% endblock %}">
+        <meta property="og:description" content="{% block og_description %}Your page description for social media.{% endblock %}">
+        <meta property="og:url" content="{% block og_url %}https://yourwebsite.com/page-url{% endblock %}">
+        <meta property="og:type" content="website">
 
-    {% block extra_head %} 
-    <!-- Additional head content goes here -->
-    {% endblock %}
-</head>
+        {% block extra_head %} 
+        {% endblock %}
+        
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    
 <body>
 
     <!-- Header -->
