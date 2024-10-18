@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}My Django Website{% endblock %}</title>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% block extra_head %} 
+    <!-- Additional head content goes here -->
+    {% endblock %}
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>My Django Website</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="">Projects</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Django Website</p>
+    </footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'js/styles.js' %}"></script>
+    {% block extra_js %}
+    <!-- Additional scripts go here -->
+    {% endblock %}
+</body>
+</html>
